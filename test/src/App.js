@@ -65,54 +65,12 @@ console.log(testData[0][0]);
 
 function clickNum(numberPad) {
   console.log("click", numberPad);
-  // for (let i = 1; i <= cols; i++) {
-  //   let number = document.createElement("div");
-  //   number.id = i;
-  //   number.innerText = i;
-  //   number.addEventListner("click", selectNumber);
-  //   number.classList.add("gameNum");
-  //   document.getElementById("digits").appendChild(number);
+ 
 }
-
 function clickBlock(rIndex, cIndex) {
   console.log(rIndex, cIndex);
 }
-// function selectNumber() {
-//   if (numSelected != null) {
-//     numSelected.classList.remove("gameNumselect");
-//   }
 
-//   numSelected = this;
-//   numSelected.calssList.add("gameNumselect");
-// }
-
-// }
-
-// function clickBlock(x, y) {
-//   console.log(x, y);
-// }
-// const quizDatas = (blocks, x, y) => {
-//   let randNum = 0;
-//   let i = 0;
-//   while (true) {
-//     if (i++ > 1000) {
-//       console.log("exit", x, y);
-//       break;
-//     }
-//     randNum = sudokuBlocks(0, 2);
-
-//     // 좌측으로 있는가? 있다면 다시 숫자 선정
-//     if (blocks[y]) if (blocks[y].includes(randNum)) continue;
-//     // 세로로 있는가 체크
-//     let hasNum = false;
-//     blocks.forEach((row) => {
-//       if (row[x] !== undefined && row[x] == randNum) hasNum = true;
-//     });
-//     if (hasNum) continue;
-//     break;
-//   }
-//   return randNum;
-// };
 
 function App() {
   const [sudokuData, setSudokuData] = useState([]);
@@ -125,35 +83,12 @@ function App() {
   //const [selectX, setSelectX] = React.useState(null);
   // const [selectY, setSelectY] = React.useState(null);
 
-  //
-  // const btn = () => {
-  //   const el = document.getElementById("box");
-
-  //   el.addEventListener(
-  //     "click",
-  //     (event) => {
-  //       event.currentTarget.style.backgroundColor = "red";
-  //     },
-  //     false
-  //   );
-  // };
+  
 
   const str = "123";
   const arr = str.split(""); //split 배열 분리
 
-  // function clickNum() {
-  //   for(let i=1; i<=cols; i++){
-  //     let number = document.createElement("td")
-  //     number.id=i
-  //     number.innerText = i;
-  //     number.addEventListner("click", selectNumber);
-  //     number.classList.add("gameNum");
-  //     document.getElementById("digits").appendChild(number);
-
-  //   }
-
-  //    console.log("click", );
-  //    };
+  
 
   const [buttonPopup, setButtonPopup] = useState(false);
   function Popup(props) {

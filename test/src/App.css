@@ -22,6 +22,7 @@
 }
 
 table {
+  margin-bottom: 20px;
   border-spacing: 4px; /* border간 간격 */
 }
 table tbody tr {
@@ -83,11 +84,11 @@ td:hover {
 .textclick {
   font-size: 35px;
   font-weight: bold;
-  color: gray;
+  color: gsray;
 }
 
 .keypad {
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex; /*객체 가로정렬*/
   flex-direction: row;
 }
@@ -103,29 +104,83 @@ td:hover {
 }
 
 .resetbutton {
-  margin: 0 5px;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #282c34;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-size: 20px;
-  justify-content: "space-between";
-}
+    margin: 0 5px;
+    font-size: 20px;
+    padding: 5px 12px;
+    border: 2px solid white;
+    background-color: transparent; /*배경투명*/
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /*부모테그가 자식태그 수용*/
+    transition: all 0.4s;
+    overflow: hidden;
+     
+  }
+  
+  .resetbutton::before{
+      background-color: white;
+      content: "";
+      position: absolute; /*크기를 부모의 요소에 맞게 배치*/
+      height: 100%;
+      width: 100%;
+      top: 100%;
+      left:0 ;
+      transition: all 0.4s; 
+      z-index: -1; /*화면 위치*/
+      
+       
+  }
+  
+  .resetbutton:hover::before{
+      transform: translateY(-100%);
+  }
+  
+  .resetbutton:hover{
+      color:#282c34;
+      z-index: 1;
+  }
 
 .newGameButton {
   margin: 0 5px;
-  font-weight: bold;
-  color: #282c34;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 5px 12px;
   font-size: 20px;
-  justify-content: "space-between";
+  padding: 5px 12px;
+  border: 2px solid white;
+  background-color: transparent; /*배경투명*/
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /*부모테그가 자식태그 수용*/
+  transition: all 0.4s;
+  overflow: hidden;
+   
 }
+
+.newGameButton::before{
+    background-color: white;
+    content: "";
+    position: absolute; /*크기를 부모의 요소에 맞게 배치*/
+    height: 100%;
+    width: 100%;
+    top: 100%;
+    left:0 ;
+    transition: all 0.4s;
+    z-index: -1;
+    
+     
+}
+
+.newGameButton:hover::before{
+    transform: translateY(-100%);
+}
+
+.newGameButton:hover{
+    color:#282c34;
+    z-index: 1;
+}
+
+
+
 
 .popup {
   position: fixed;
