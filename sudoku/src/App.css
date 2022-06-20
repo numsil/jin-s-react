@@ -1,0 +1,217 @@
+.App {
+  text-align: center;
+}
+
+.App-Background {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.box {
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+table {
+  margin-bottom: 20px;
+  border-spacing: 4px; /* border간 간격 */
+}
+table tbody tr {
+  width: 72px;
+  height: 72px;
+  justify-content: center;
+  user-select: auto;
+}
+
+td {
+  border: solid;
+  width: 72px;
+  height: 72px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: #282c34;
+}
+
+td:hover {
+  border: solid;
+  border-color: white;
+  background-color: #282c34;
+  color: white;
+}
+
+.Selected {
+  background-color: red;
+  user-select: none;
+}
+
+.blockColor {
+  width: 72px;
+  height: 72px;
+  background-color: white;
+}
+
+.gameNum {
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #282c34;
+  border: none;
+}
+.gameNum:hover {
+  color: #999;
+}
+
+.gameNumselect {
+  background-color: red;
+}
+
+.textclick {
+  font-size: 35px;
+  font-weight: bold;
+  color: gsray;
+}
+
+.keypad {
+  margin-top: 20px;
+  display: flex; /*객체 가로정렬*/
+  flex-direction: row;
+}
+.keypad > div {
+  margin: 0 2px; /*객체간 간격*/
+  padding: 5px; /* 객체 범위*/
+}
+
+.numStyle {
+  font-size: 35px;
+  font-weight: bold;
+  color: gray;
+}
+
+.resetbutton {
+  margin: 0 5px;
+  font-size: 20px;
+  padding: 5px 12px;
+  border: 2px solid white;
+  background-color: transparent; /*배경투명*/
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /*부모테그가 자식태그 수용*/
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.resetbutton::before {
+  background-color: white;
+  content: "";
+  position: absolute; /*크기를 부모의 요소에 맞게 배치*/
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  transition: all 0.4s;
+  z-index: -1; /*화면 위치*/
+}
+
+.resetbutton:hover::before {
+  transform: translateY(-100%);
+}
+
+.resetbutton:hover {
+  color: #282c34;
+  z-index: 1;
+}
+
+.newGameButton {
+  margin: 0 5px;
+  font-size: 20px;
+  padding: 5px 12px;
+  border: 2px solid white;
+  background-color: transparent; /*배경투명*/
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /*부모테그가 자식태그 수용*/
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.newGameButton::before {
+  background-color: white;
+  content: "";
+  position: absolute; /*크기를 부모의 요소에 맞게 배치*/
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
+  top: calc(100% + 1px);
+  left: -1px;
+  transition: all 0.4s;
+  z-index: -1;
+  transform: scaleY(0) translateY(-100%);
+}
+
+.newGameButton:hover::before {
+  /* transform: translateY(-100%); */
+  transform: scaleY(1) translateY(-100%);
+}
+
+.newGameButton:hover {
+  color: #282c34;
+  z-index: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner {
+  display: flex;
+  position: relative;
+  padding: 12px;
+  border-radius: 20px;
+  height: 30%;
+  width: 100%;
+  max-width: 300px;
+  background-color: white;
+  box-shadow: 5px 5px 9px 5px #141212;
+  justify-content: center;
+  color: #282c34;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.close-btn {
+  /* position: absolute;
+  bottom: 2ch; */
+  border: none;
+  box-shadow: 1px 1px gray;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 20px;
+  color: white;
+  background-color: #282c34;
+  margin: 0 5px;
+  margin-top: 70px;
+}

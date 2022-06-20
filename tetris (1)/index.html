@@ -1,0 +1,117 @@
+<html>
+<head>
+<script type="text/javascript" src="EventHandler.js"></script>
+<script type="text/javascript" src="Animate.js"></script>
+<script type="text/javascript" src="Resource.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="tetris.js"></script>
+<script type="text/javascript" src="Stage.js"></script>
+</head>
+<body>
+
+<canvas id="canvas1" width="350" height="350" style="background-color:#CCC"></canvas>
+
+
+<div style="position:absolute; right:0; top:0">
+<button type="button" onclick="UTIL.clearMsg()">clear</button>
+<div id="debug"></div>
+</div>
+
+
+<script type="text/javascript">
+
+var canvas = document.getElementById('canvas1');
+var context = canvas.getContext('2d');
+
+Stage.oCanvas = context;
+Stage.init();
+Tetris.init();
+
+Stage.append( Tetris_User );
+Stage.append( Anmate );
+
+
+document.onkeydown = function( event )
+{
+	switch( event.keyCode )
+	{
+		case 37: 
+			Tetris_User.left();
+		break;
+		case 38: 
+			Tetris_User.up();
+		break;
+		case 39: 
+			Tetris_User.right();
+		break;
+		case 40: 
+			Tetris_User.down( true );
+		break;
+		case 32: 
+			Tetris_User.drop();
+		break;
+		case 17: 
+			Tetris_User.hold();
+		break;
+
+		case 103: 
+			Tetris_User.rotate( -90 );
+		break;
+		case 104: 
+			Tetris_User.rotate();
+		break;
+		case 105: 
+			Tetris_User.rotate();
+		break;
+
+		case 100: 
+			Tetris_User.left();
+		break;
+		case 101: 
+			Tetris_User.rotate();
+		break;
+		case 102: 
+			Tetris_User.right();
+		break;
+
+		case 96:
+			Tetris_User.hold();
+		break;
+		
+		case 13: 
+			//Tetris_User.addScore(1000);
+			Tetris_User.attackMe(3);
+			
+		break;
+
+	}
+	//alert( event.keyCode );
+}
+
+
+
+</script>
+
+
+<p>
+	<span style="font-size:11px">ver 1.0.4 beta</span><br>
+	<b>스페이스바</b> : 급다운<br>
+	<b>좌우하</b> : 블럭이동<br>
+	<b>상</b> : 블럭 돌리기<br>
+	<b>ctrl</b> : 블럭 홀드하기 / 혹은 교체<br>
+	
+	<br>
+	<b>전문모드 입렵키</b><br>
+	우측 숫자키<br>
+	7 좌로 회전<br>
+	8,9,5 우로 회전<br>
+	4 좌로 이동<br>
+	6 우로 이동<br>
+	0 홀드<br>
+
+	<div style="font-size:10px;">사운드와 BGM은 한게임 테트리스에서 발취하였음을 알립니다.</div>
+	
+</p>
+
+</body>
+</html>
