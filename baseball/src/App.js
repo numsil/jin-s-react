@@ -25,8 +25,8 @@ function getNumbers(){
 
 function App() {
 
-  const [result, setResult] = useState(``);
-  const [value, setValue] = useState(``);
+  const [result, setResult] = useState('');
+  const [value, setValue] = useState('');
   const [tries, setTries] = useState([]);
   const [answer, setAnswer] = useState(getNumbers())
 
@@ -36,12 +36,17 @@ function App() {
     e.preventDefault();
     if(value === answer.join('')){
       setResult('홈런!')
-      setTries(prevTries) =>{
-        [...tries, { try : value, result: '홈런!'}]
-      }
+      setTries((prevTries) => {
+        return [...tries, { try : value, result: '홈런!'}]
+      });
+      alert();
+      setValue('')
+      setAnswer(getNumbers());
+      setTries([]);
     } else {
       const answerArray = value.splite('').map((v)=>parseInt(v));
-      let strike = 0
+      let strike = 0;
+      let ball = 0;
 
     } else { 
       for(let i = 0; i < 4; i +=1 ){
@@ -57,7 +62,6 @@ function App() {
 
   const onChangeInput = (e)=>{
     setValue(e.target.value);
-
   };
 
   return (
