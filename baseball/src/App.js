@@ -2,11 +2,21 @@ import { useState } from 'react';
 import './App.css';
 
 
+const Try = ({ tryInfo}) =>{
+  return(
+    <li>
+      <div>{tryInfo.try}</div>
+      <div>{tryInfo.result}</div>
+    </li>
+  )
+}
+
+
 function getNumbers(){
   const candidate = [1,2,3,4,5,6,7,8,9];
   const array = [];
   for(let i = 0; i < 4; i +=1 ){
-    const chosen = candidate.splice(Math.floor(Math.random()*(9 -i)), 1)[0];
+    const chosen = candidate.splice(Math.floor(Math.random()*(9 - i)), 1)[0];
     array.push(chosen);
   }
   return array;
@@ -15,20 +25,25 @@ function getNumbers(){
 
 function App() {
 
-  const [result, setResult] = useState();
-  const [value, setValue] = useState();
+  const [result, setResult] = useState(``);
+  const [value, setValue] = useState(``);
   const [tries, setTries] = useState([]);
- 
-  const getNumbers = ()=>{
+  const [answer, setAnswer] = useState(getNumbers())
 
-  };
+  
 
   const onSubmitForm = (e)=>{
     e.preventDefault();
     if(value === answer.join('')){
-      result = '홈런!'
-      tries = [...tries, { try : value, result: '홈런!'}]
+      setResult('홈런!')
+      setTries(prevTries) =>{
+        [...tries, { try : value, result: '홈런!'}]
+      }
     } else {
+      const answerArray = value.splite('').map((v)=>parseInt(v));
+      let strike = 0
+
+    } else { 
       for(let i = 0; i < 4; i +=1 ){
         if(anserArray[i] === answer[i]) {
           strike += 1;
@@ -36,10 +51,12 @@ function App() {
           ball += 1;
         }
       }
+      }
     }
   };
 
-  const onChangeInput = ()=>{
+  const onChangeInput = (e)=>{
+    setValue(e.target.value);
 
   };
 
