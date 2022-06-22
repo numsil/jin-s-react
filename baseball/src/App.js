@@ -2,7 +2,16 @@ import { useState } from 'react';
 import './App.css';
 
 
-function getNumbers(){
+const Try = ({ tryInfo }) =>{
+  return(
+    <li>
+      <div>{tryInfo.try}</div>
+      <div>{tryInfo.result}</div>
+    </li>
+  )
+}
+
+const getNumbers = ()=> {
   const candidate = [1,2,3,4,5,6,7,8,9];
   const array = [];
   for(let i = 0; i < 4; i +=1 ){
@@ -18,29 +27,45 @@ function App() {
   const [result, setResult] = useState();
   const [value, setValue] = useState();
   const [tries, setTries] = useState([]);
- 
-  const getNumbers = ()=>{
-
-  };
+  const [answer, setAnswer] = useState(getNumbers());
 
   const onSubmitForm = (e)=>{
     e.preventDefault();
     if(value === answer.join('')){
-      result = '홈런!'
-      tries = [...tries, { try : value, result: '홈런!'}]
+      setResult = '홈런!'
+      setTries((prevTries) => {
+        return [...prevTries, { try : value, result: '홈런!'}]
+      }) 
+      alert('reload');
+      setValue = ('');
+      setAnswer = (getNumbers());
+      setTries = ([]);
     } else {
-      for(let i = 0; i < 4; i +=1 ){
-        if(anserArray[i] === answer[i]) {
-          strike += 1;
-        } else if (answer.includes(answerArray[i])){
-          ball += 1;
+      const answerArray = value.split('').map((v)=> parseInt(v));
+      let strike = 0;
+      let ball = 0;
+      if (tries.length >= 9){
+        setResult( 'ddd ${answer.join(',')}dddd');
+        alert('restart');
+        setValue('');
+        setAnswer(getNumbers());
+        setTries([]);    
+      } else {
+        for(let i = 0; i < 4; i +=1 ){
+          if(answerArray[i] === answer[i]) {
+            strike += 1;
+          } else if (answer.includes(answerArray[i])){
+            ball += 1;
+          }
         }
-      }
-    }
+        setTries((prevTries) => [...prevTries, { try : value, result: '${strike} S, ${ball} B'}])  
+        setValue('');
+    }}
   };
 
-  const onChangeInput = ()=>{
-
+  const onChangeInput = (e)=>{
+    console.log(answer)
+    setValue(e.target.value);
   };
 
   return (
@@ -51,9 +76,10 @@ function App() {
       </form>
       <div>시도 : {tries.lenght}</div>
       <ul>
-        {tries.map((setTries, i)=>{
-          
-           <li key={i}></li> 
+        {tries.map((v, i)=>{
+          return(
+           <div className='Try' key={'${i=1}차시도 :'} tryInfo={v} />
+          )
           
         })}
         
