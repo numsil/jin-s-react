@@ -15,7 +15,7 @@ const getNumbers = ()=> {
   const candidate = [1,2,3,4,5,6,7,8,9];
   const array = [];
   for(let i = 0; i < 4; i +=1 ){
-    const chosen = candidate.splice(Math.floor(Math.random()*(9 -i)), 1)[0];
+    const chosen = candidate.splice(Math.floor(Math.random()*(9 - i)), 1)[0];
     array.push(chosen);
   }
   return array;
@@ -24,8 +24,8 @@ const getNumbers = ()=> {
 
 function App() {
 
-  const [result, setResult] = useState();
-  const [value, setValue] = useState();
+  const [result, setResult] = useState('');
+  const [value, setValue] = useState('');
   const [tries, setTries] = useState([]);
   const [answer, setAnswer] = useState(getNumbers());
 
