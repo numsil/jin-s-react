@@ -74,7 +74,7 @@ function App() {
       <form onSubmit = {onSubmitForm}>
         <input maxLength={4} value={value} onChange={onChangeInput} />
       </form>
-      <div>시도 : {tries.lenght}</div>
+      <div>시도 횟수 : {tries.lenght}</div>
       <ul>
         {tries.map((v, i)=>{
           return(
